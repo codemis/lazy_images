@@ -115,38 +115,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	// customize the appearance of table view cells
-	//
 	static NSString *CellIdentifier = @"LazyTableCell";
     static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
-    
-    // add a placeholder cell while waiting on table data
     int nodeCount = [self.entries count];
-	
 	if (nodeCount == 0 && indexPath.row == 0)
 	{
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PlaceholderCellIdentifier];
-        if (cell == nil)
-		{
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-										   reuseIdentifier:PlaceholderCellIdentifier];   
-            cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
-			cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-
-		cell.detailTextLabel.text = @"Loading…";
-		
-		return cell;
+        return [tableView dequeueReusableCellWithIdentifier:PlaceholderCellIdentifier];
     }
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil)
-	{
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-									   reuseIdentifier:CellIdentifier];
-		cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-
+    // TODO: Why?!?
     // Leave cells empty if there's no data yet
     if (nodeCount > 0)
 	{
