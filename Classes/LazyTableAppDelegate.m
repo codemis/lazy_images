@@ -174,8 +174,7 @@ static NSString *const TopPaidAppsFeed =
     if ([error code] == kCFURLErrorNotConnectedToInternet)
 	{
         // if we can identify the error, we can present a more precise message to the user.
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"No Connection Error"
-															 forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: @"No Connection Error"};
         NSError *noConnectionError = [NSError errorWithDomain:NSCocoaErrorDomain
 														 code:kCFURLErrorNotConnectedToInternet
 													 userInfo:userInfo];

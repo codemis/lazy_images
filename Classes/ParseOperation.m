@@ -79,7 +79,7 @@ static NSString *kEntryStr  = @"entry";
     {
         self.dataToParse = data;
         self.completionHandler = handler;
-        self.elementsToParse = [NSArray arrayWithObjects:kIDStr, kNameStr, kImageStr, kArtistStr, nil];
+        self.elementsToParse = @[kIDStr, kNameStr, kImageStr, kArtistStr];
     }
     return self;
 }

@@ -151,7 +151,7 @@
     if (nodeCount > 0)
 	{
         // Set up the cell...
-        AppRecord *appRecord = [self.entries objectAtIndex:indexPath.row];
+        AppRecord *appRecord = (self.entries)[indexPath.row];
         
 		cell.textLabel.text = appRecord.appName;
         cell.detailTextLabel.text = appRecord.artist;
@@ -182,14 +182,14 @@
 
 - (void)startIconDownload:(AppRecord *)appRecord forIndexPath:(NSIndexPath *)indexPath
 {
-    IconDownloader *iconDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+    IconDownloader *iconDownloader = imageDownloadsInProgress[indexPath];
     if (iconDownloader == nil) 
     {
         iconDownloader = [[IconDownloader alloc] init];
         iconDownloader.appRecord = appRecord;
         iconDownloader.indexPathInTableView = indexPath;
         iconDownloader.delegate = self;
-        [imageDownloadsInProgress setObject:iconDownloader forKey:indexPath];
+        imageDownloadsInProgress[indexPath] = iconDownloader;
         [iconDownloader startDownload];
     }
 }
@@ -202,7 +202,7 @@
         NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
         for (NSIndexPath *indexPath in visiblePaths)
         {
-            AppRecord *appRecord = [self.entries objectAtIndex:indexPath.row];
+            AppRecord *appRecord = (self.entries)[indexPath.row];
             
             if (!appRecord.appIcon) // avoid the app icon download if the app already has an icon
             {
@@ -215,7 +215,7 @@
 // called by our ImageDownloader when an icon is ready to be displayed
 - (void)appImageDidLoad:(NSIndexPath *)indexPath
 {
-    IconDownloader *iconDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+    IconDownloader *iconDownloader = imageDownloadsInProgress[indexPath];
     if (iconDownloader != nil)
     {
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:iconDownloader.indexPathInTableView];
