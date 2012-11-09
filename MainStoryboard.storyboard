@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller - Top Paid Apps-->
+        <!--App Table View Controller - Top Paid Apps-->
         <scene sceneID="Ph4-Pg-GlC">
             <objects>
-                <tableViewController id="Xv1-jr-UAc" customClass="RootViewController" sceneMemberID="viewController">
+                <tableViewController id="Xv1-jr-UAc" customClass="AppTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oLh-oI-VX6">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,11 +79,6 @@
             <point key="canvasLocation" x="37" y="-13"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="RootViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

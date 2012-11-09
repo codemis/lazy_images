@@ -1,5 +1,5 @@
 @class AppRecord;
-@class RootViewController;
+@class AppTableViewController;
 @protocol IconDownloaderDelegate;
 @interface IconDownloader : NSObject
 @property (nonatomic, strong) AppRecord *appRecord;

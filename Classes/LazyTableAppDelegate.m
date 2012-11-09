@@ -1,12 +1,12 @@
 #import "LazyTableAppDelegate.h"
-#import "RootViewController.h"
+#import "AppTableViewController.h"
 #import "ParseOperation.h"
 // This framework was imported so we could use the kCFURLErrorNotConnectedToInternet error code.
 #import <CFNetwork/CFNetwork.h>
 static NSString *const TopPaidAppsFeed =
 	@"http://phobos.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=75/xml";
 @interface LazyTableAppDelegate ()
-@property (nonatomic, strong) RootViewController *rootVC;
+@property (nonatomic, strong) AppTableViewController *appTableVC;
 @end
 
 @implementation LazyTableAppDelegate
@@ -15,8 +15,8 @@ static NSString *const TopPaidAppsFeed =
   didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.appRecords = [NSMutableArray array];
-    self.rootVC = (RootViewController *)((UINavigationController *) self.window.rootViewController).topViewController;
-    self.rootVC.entries = self.appRecords;
+    self.appTableVC = (AppTableViewController *)((UINavigationController *) self.window.rootViewController).topViewController;
+    self.appTableVC.entries = self.appRecords;
     
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:TopPaidAppsFeed]];
     self.appListFeedConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
@@ -33,7 +33,7 @@ static NSString *const TopPaidAppsFeed =
 - (void)handleLoadedApps:(NSArray *)loadedApps
 {
     [self.appRecords addObjectsFromArray:loadedApps];
-    [self.rootVC.tableView reloadData];
+    [self.appTableVC.tableView reloadData];
 }
 #pragma mark - NSURLConnection delegate methods
 - (void)handleError:(NSError *)error

@@ -1,13 +1,13 @@
-#import "RootViewController.h"
+#import "AppTableViewController.h"
 #import "AppRecord.h"
 #import "IconDownloader.h"
 #define kCustomRowCount     7
 #pragma mark -
-@interface RootViewController ()<UIScrollViewDelegate, IconDownloaderDelegate>
+@interface AppTableViewController ()<UIScrollViewDelegate, IconDownloaderDelegate>
 - (void)startIconDownload:(AppRecord *)appRecord forIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@implementation RootViewController
+@implementation AppTableViewController
 #pragma mark 
 - (void)viewDidLoad
 {
