@@ -60,11 +60,11 @@ static NSString *kEntryStr  = @"entry";
 
 @interface ParseOperation ()
 @property (nonatomic, copy) ArrayBlock completionHandler;
-@property (nonatomic, retain) NSData *dataToParse;
-@property (nonatomic, retain) NSMutableArray *workingArray;
-@property (nonatomic, retain) AppRecord *workingEntry;
-@property (nonatomic, retain) NSMutableString *workingPropertyString;
-@property (nonatomic, retain) NSArray *elementsToParse;
+@property (nonatomic, strong) NSData *dataToParse;
+@property (nonatomic, strong) NSMutableArray *workingArray;
+@property (nonatomic, strong) AppRecord *workingEntry;
+@property (nonatomic, strong) NSMutableString *workingPropertyString;
+@property (nonatomic, strong) NSArray *elementsToParse;
 @property (nonatomic, assign) BOOL storingCharacterData;
 @end
 
@@ -87,17 +87,6 @@ static NSString *kEntryStr  = @"entry";
 // -------------------------------------------------------------------------------
 //	dealloc:
 // -------------------------------------------------------------------------------
-- (void)dealloc
-{
-    [completionHandler release];
-    [errorHandler release];
-    [dataToParse release];
-    [workingEntry release];
-    [workingPropertyString release];
-    [workingArray release];
-    
-    [super dealloc];
-}
 
 // -------------------------------------------------------------------------------
 //	main:
@@ -105,20 +94,20 @@ static NSString *kEntryStr  = @"entry";
 // -------------------------------------------------------------------------------
 - (void)main
 {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
-	self.workingArray = [NSMutableArray array];
+		self.workingArray = [NSMutableArray array];
     self.workingPropertyString = [NSMutableString string];
     
     // It's also possible to have NSXMLParser download the data, by passing it a URL, but this is not
-	// desirable because it gives less control over the network, particularly in responding to
-	// connection errors.
+		// desirable because it gives less control over the network, particularly in responding to
+		// connection errors.
     //
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:dataToParse];
-	[parser setDelegate:self];
+		[parser setDelegate:self];
     [parser parse];
-	
-	if (![self isCancelled])
+		
+		if (![self isCancelled])
     {
         // call our completion handler with the result of our parsing
         self.completionHandler(self.workingArray);
@@ -128,9 +117,8 @@ static NSString *kEntryStr  = @"entry";
     self.workingPropertyString = nil;
     self.dataToParse = nil;
     
-    [parser release];
 
-	[pool release];
+	}
 }
 
 
@@ -146,7 +134,7 @@ static NSString *kEntryStr  = @"entry";
     //
     if ([elementName isEqualToString:kEntryStr])
 	{
-        self.workingEntry = [[[AppRecord alloc] init] autorelease];
+        self.workingEntry = [[AppRecord alloc] init];
     }
     storingCharacterData = [elementsToParse containsObject:elementName];
 }

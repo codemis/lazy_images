@@ -93,7 +93,7 @@ static NSString *const TopPaidAppsFeed =
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
     // Initializr the app window
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
@@ -102,7 +102,7 @@ static NSString *const TopPaidAppsFeed =
     rootViewController.entries = self.appRecords;
     
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:TopPaidAppsFeed]];
-    self.appListFeedConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest delegate:self] autorelease];
+    self.appListFeedConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     
     // Test the validity of the connection object. The most likely reason for the connection object
     // to be nil is a malformed URL, which is a programmatic error easily detected during development
@@ -141,7 +141,6 @@ static NSString *const TopPaidAppsFeed =
 											  cancelButtonTitle:@"OK"
 											  otherButtonTitles:nil];
     [alertView show];
-    [alertView release];
 }
 
 // The following are delegate methods for NSURLConnection. Similar to callback functions, this is how
@@ -201,7 +200,7 @@ static NSString *const TopPaidAppsFeed =
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;   
     
     // create the queue to run our ParseOperation
-    self.queue = [[[NSOperationQueue alloc] init] autorelease];
+    self.queue = [[NSOperationQueue alloc] init];
     
     // create an ParseOperation (NSOperation subclass) to parse the RSS feed data so that the UI is not blocked
     // "ownership of appListData has been transferred to the parse operation and should no longer be
@@ -228,7 +227,6 @@ static NSString *const TopPaidAppsFeed =
     
     [queue addOperation:parser]; // this will start the "ParseOperation"
     
-    [parser release];
     
     // ownership of appListData has been transferred to the parse operation
     // and should no longer be referenced in this thread
@@ -238,18 +236,5 @@ static NSString *const TopPaidAppsFeed =
 // -------------------------------------------------------------------------------
 //	dealloc
 // -------------------------------------------------------------------------------
-- (void)dealloc
-{
-	[navigationController release];
-    [appRecords release];
-    
-	[rootViewController release];
-    [appListFeedConnection release];
-    [appListData release];
-    
-    [window release];
-    
-	[super dealloc];
-}
 
 @end

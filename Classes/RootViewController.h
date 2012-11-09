@@ -66,8 +66,8 @@
     NSMutableDictionary *imageDownloadsInProgress;  // the set of IconDownloader objects for each app
 }
 
-@property (nonatomic, retain) NSArray *entries;
-@property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
+@property (nonatomic, strong) NSArray *entries;
+@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 
 - (void)appImageDidLoad:(NSIndexPath *)indexPath;
 

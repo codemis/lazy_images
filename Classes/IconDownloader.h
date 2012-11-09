@@ -59,18 +59,18 @@
 {
     AppRecord *appRecord;
     NSIndexPath *indexPathInTableView;
-    id <IconDownloaderDelegate> delegate;
+    id <IconDownloaderDelegate> __weak delegate;
     
     NSMutableData *activeDownload;
     NSURLConnection *imageConnection;
 }
 
-@property (nonatomic, retain) AppRecord *appRecord;
-@property (nonatomic, retain) NSIndexPath *indexPathInTableView;
-@property (nonatomic, assign) id <IconDownloaderDelegate> delegate;
+@property (nonatomic, strong) AppRecord *appRecord;
+@property (nonatomic, strong) NSIndexPath *indexPathInTableView;
+@property (nonatomic, weak) id <IconDownloaderDelegate> delegate;
 
-@property (nonatomic, retain) NSMutableData *activeDownload;
-@property (nonatomic, retain) NSURLConnection *imageConnection;
+@property (nonatomic, strong) NSMutableData *activeDownload;
+@property (nonatomic, strong) NSURLConnection *imageConnection;
 
 - (void)startDownload;
 - (void)cancelDownload;

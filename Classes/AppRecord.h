@@ -56,10 +56,10 @@
     NSString *appURLString;
 }
 
-@property (nonatomic, retain) NSString *appName;
-@property (nonatomic, retain) UIImage *appIcon;
-@property (nonatomic, retain) NSString *artist;
-@property (nonatomic, retain) NSString *imageURLString;
-@property (nonatomic, retain) NSString *appURLString;
+@property (nonatomic, strong) NSString *appName;
+@property (nonatomic, strong) UIImage *appIcon;
+@property (nonatomic, strong) NSString *artist;
+@property (nonatomic, strong) NSString *imageURLString;
+@property (nonatomic, strong) NSString *appURLString;
 
 @end

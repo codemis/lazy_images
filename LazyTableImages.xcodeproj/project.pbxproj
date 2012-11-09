@@ -25,6 +25,7 @@
 		53D642AC106AA2C200DAA9B9 /* AppRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D642AB106AA2C200DAA9B9 /* AppRecord.m */; };
 		53FC8A411003E3520064E2E7 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53FC8A3D1003E3520064E2E7 /* RootViewController.xib */; };
 		53FC8A421003E3520064E2E7 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53FC8A3F1003E3520064E2E7 /* MainWindow.xib */; };
+		66F71781164C9102003118B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66F71780164C9102003118B6 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		53D642AB106AA2C200DAA9B9 /* AppRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppRecord.m; sourceTree = "<group>"; };
 		53FC8A3E1003E3520064E2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		53FC8A401003E3520064E2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		66F71780164C9102003118B6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				66F71780164C9102003118B6 /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -213,6 +216,7 @@
 				539E57C711C932D50080E0B4 /* Placeholder.png in Resources */,
 				539E57C911C932EB0080E0B4 /* Default.png in Resources */,
 				53989D6611D5526E00B3D482 /* iTunesArtwork in Resources */,
+				66F71781164C9102003118B6 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -282,6 +287,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

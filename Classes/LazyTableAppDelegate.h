@@ -55,17 +55,17 @@
 
 @interface LazyTableAppDelegate : NSObject <UIApplicationDelegate>
 
-@property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) IBOutlet UINavigationController *navigationController;
 
-@property (nonatomic, retain) IBOutlet RootViewController *rootViewController;
+@property (nonatomic, strong) IBOutlet RootViewController *rootViewController;
 
-@property (nonatomic, retain) NSMutableArray *appRecords;
+@property (nonatomic, strong) NSMutableArray *appRecords;
 
-@property (nonatomic, retain) NSOperationQueue *queue;
+@property (nonatomic, strong) NSOperationQueue *queue;
 
-@property (nonatomic, retain) NSURLConnection *appListFeedConnection;
-@property (nonatomic, retain) NSMutableData *appListData;
+@property (nonatomic, strong) NSURLConnection *appListFeedConnection;
+@property (nonatomic, strong) NSMutableData *appListData;
 
 @end
 

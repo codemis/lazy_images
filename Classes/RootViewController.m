@@ -87,13 +87,6 @@
     self.tableView.rowHeight = kCustomRowHeight;
 }
 
-- (void)dealloc
-{
-    [entries release];
-	[imageDownloadsInProgress release];
-    
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -135,8 +128,8 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PlaceholderCellIdentifier];
         if (cell == nil)
 		{
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-										   reuseIdentifier:PlaceholderCellIdentifier] autorelease];   
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+										   reuseIdentifier:PlaceholderCellIdentifier];   
             cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
@@ -149,8 +142,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
 	{
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-									   reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+									   reuseIdentifier:CellIdentifier];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
@@ -198,7 +191,6 @@
         iconDownloader.delegate = self;
         [imageDownloadsInProgress setObject:iconDownloader forKey:indexPath];
         [iconDownloader startDownload];
-        [iconDownloader release];   
     }
 }
 
