@@ -11,9 +11,9 @@ static NSString *const TopPaidAppsFeed =
 
 @implementation LazyTableAppDelegate
 #pragma mark -
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)            application:(UIApplication *)application
+  didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Initialize the array of app records and pass a reference to that list to our root view controller
     self.appRecords = [NSMutableArray array];
     self.rootVC = (RootViewController *)((UINavigationController *) self.window.rootViewController).topViewController;
     self.rootVC.entries = self.appRecords;
@@ -33,13 +33,9 @@ static NSString *const TopPaidAppsFeed =
 - (void)handleLoadedApps:(NSArray *)loadedApps
 {
     [self.appRecords addObjectsFromArray:loadedApps];
-    
-    // tell our table view to reload its data, now that parsing has completed
     [self.rootVC.tableView reloadData];
 }
-
-#pragma mark -
-#pragma mark NSURLConnection delegate methods
+#pragma mark - NSURLConnection delegate methods
 - (void)handleError:(NSError *)error
 {
     NSString *errorMessage = [error localizedDescription];
@@ -50,25 +46,23 @@ static NSString *const TopPaidAppsFeed =
 											  otherButtonTitles:nil];
     [alertView show];
 }
-
-// The following are delegate methods for NSURLConnection. Similar to callback functions, this is how
-// the connection object,  which is working in the background, can asynchronously communicate back to
-// its delegate on the thread from which it was started - in this case, the main thread.
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+- (void)    connection:(NSURLConnection *)connection
+    didReceiveResponse:(NSURLResponse *)response
 {
-    self.appListData = [NSMutableData data];    // start off with new data
+    self.appListData = [NSMutableData data];
 }
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+- (void)    connection:(NSURLConnection *)connection
+        didReceiveData:(NSData *)data
 {
-    [self.appListData appendData:data];  // append incoming data
+    [self.appListData appendData:data];
 }
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+- (void)    connection:(NSURLConnection *)connection
+      didFailWithError:(NSError *)error
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     if ([error code] == kCFURLErrorNotConnectedToInternet)
 	{
-        // if we can identify the error, we can present a more precise message to the user.
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey: @"No Connection Error"};
         NSError *noConnectionError = [NSError errorWithDomain:NSCocoaErrorDomain
 														 code:kCFURLErrorNotConnectedToInternet
@@ -77,49 +71,28 @@ static NSString *const TopPaidAppsFeed =
     }
 	else
 	{
-        // otherwise handle the error generically
         [self handleError:error];
     }
-    
-    self.appListFeedConnection = nil;   // release our connection
+    self.appListFeedConnection = nil;
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    self.appListFeedConnection = nil;   // release our connection
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;   
-    
-    // create the queue to run our ParseOperation
+    self.appListFeedConnection = nil;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     self.queue = [[NSOperationQueue alloc] init];
-    
-    // create an ParseOperation (NSOperation subclass) to parse the RSS feed data so that the UI is not blocked
-    // "ownership of appListData has been transferred to the parse operation and should no longer be
-    // referenced in this thread.
-    //
     ParseOperation *parser = [[ParseOperation alloc] initWithData:self.appListData
                                                 completionHandler:^(NSArray *appList) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             [self handleLoadedApps:appList];
-            
         });
-        
-        self.queue = nil;   // we are finished with the queue and our ParseOperation
+        self.queue = nil;
     }];
-    
     parser.errorHandler = ^(NSError *parseError) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             [self handleError:parseError];
-            
         });
     };
-    
-    [self.queue addOperation:parser]; // this will start the "ParseOperation"
-    
-    
-    // ownership of appListData has been transferred to the parse operation
-    // and should no longer be referenced in this thread
-    self.appListData = nil;
+    [self.queue addOperation:parser];
+    self.appListData = nil;// transferred ownership to the parse operation
 }
 @end
