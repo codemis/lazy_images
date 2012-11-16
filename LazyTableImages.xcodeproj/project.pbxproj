@@ -23,6 +23,11 @@
 		539E57C711C932D50080E0B4 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 539E57C611C932D50080E0B4 /* Placeholder.png */; };
 		539E57C911C932EB0080E0B4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 539E57C811C932EB0080E0B4 /* Default.png */; };
 		53D642AC106AA2C200DAA9B9 /* AppRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D642AB106AA2C200DAA9B9 /* AppRecord.m */; };
+		66EF45D11655C86A00447B4C /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EF45CA1655C86A00447B4C /* TFHpple.m */; };
+		66EF45D21655C86A00447B4C /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EF45CC1655C86A00447B4C /* TFHppleElement.m */; };
+		66EF45D31655C86A00447B4C /* TFHppleElement+KeyedSubcript.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EF45CE1655C86A00447B4C /* TFHppleElement+KeyedSubcript.m */; };
+		66EF45D41655C86A00447B4C /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EF45D01655C86A00447B4C /* XPathQuery.m */; };
+		66EF45DA1655C9F300447B4C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EF45D91655C9F300447B4C /* libxml2.dylib */; };
 		66F71781164C9102003118B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66F71780164C9102003118B6 /* Default-568h@2x.png */; };
 		66F71787164C9B36003118B6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F71786164C9B36003118B6 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
@@ -51,6 +56,15 @@
 		539E57C811C932EB0080E0B4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		53D642AA106AA2C200DAA9B9 /* AppRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppRecord.h; sourceTree = "<group>"; };
 		53D642AB106AA2C200DAA9B9 /* AppRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppRecord.m; sourceTree = "<group>"; };
+		66EF45C91655C86A00447B4C /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		66EF45CA1655C86A00447B4C /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		66EF45CB1655C86A00447B4C /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		66EF45CC1655C86A00447B4C /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		66EF45CD1655C86A00447B4C /* TFHppleElement+KeyedSubcript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TFHppleElement+KeyedSubcript.h"; sourceTree = "<group>"; };
+		66EF45CE1655C86A00447B4C /* TFHppleElement+KeyedSubcript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TFHppleElement+KeyedSubcript.m"; sourceTree = "<group>"; };
+		66EF45CF1655C86A00447B4C /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		66EF45D01655C86A00447B4C /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		66EF45D91655C9F300447B4C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		66F71780164C9102003118B6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		66F71786164C9B36003118B6 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66EF45DA1655C9F300447B4C /* libxml2.dylib in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +88,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				66EF45D61655C87800447B4C /* TFHpple */,
 				1D3623240D0F684500981E51 /* LazyTableAppDelegate.h */,
 				1D3623250D0F684500981E51 /* LazyTableAppDelegate.m */,
 				53D642AA106AA2C200DAA9B9 /* AppRecord.h */,
@@ -149,6 +165,22 @@
 				53989D6511D5526E00B3D482 /* iTunesArtwork */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		66EF45D61655C87800447B4C /* TFHpple */ = {
+			isa = PBXGroup;
+			children = (
+				66EF45D91655C9F300447B4C /* libxml2.dylib */,
+				66EF45CF1655C86A00447B4C /* XPathQuery.h */,
+				66EF45D01655C86A00447B4C /* XPathQuery.m */,
+				66EF45C91655C86A00447B4C /* TFHpple.h */,
+				66EF45CA1655C86A00447B4C /* TFHpple.m */,
+				66EF45CB1655C86A00447B4C /* TFHppleElement.h */,
+				66EF45CC1655C86A00447B4C /* TFHppleElement.m */,
+				66EF45CD1655C86A00447B4C /* TFHppleElement+KeyedSubcript.h */,
+				66EF45CE1655C86A00447B4C /* TFHppleElement+KeyedSubcript.m */,
+			);
+			name = TFHpple;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +261,10 @@
 				53D642AC106AA2C200DAA9B9 /* AppRecord.m in Sources */,
 				539BBBA1109106B600DC7154 /* ParseOperation.m in Sources */,
 				532AABAE109B9F2E00C10F64 /* IconDownloader.m in Sources */,
+				66EF45D11655C86A00447B4C /* TFHpple.m in Sources */,
+				66EF45D21655C86A00447B4C /* TFHppleElement.m in Sources */,
+				66EF45D31655C86A00447B4C /* TFHppleElement+KeyedSubcript.m in Sources */,
+				66EF45D41655C86A00447B4C /* XPathQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +289,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = LazyTable;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -276,6 +313,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = LazyTable;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
