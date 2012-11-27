@@ -118,6 +118,8 @@ NSArray *PerformXPathQuery(xmlDocPtr doc, NSString *query)
 
   /* Create xpath evaluation context */
   xpathCtx = xmlXPathNewContext(doc);
+  xmlXPathRegisterNs(xpathCtx, (xmlChar *)[@"xmlns" UTF8String],(xmlChar *)[@"http://www.w3.org/2005/Atom" UTF8String]);
+  xmlXPathRegisterNs(xpathCtx, (xmlChar *)[@"im" UTF8String],(xmlChar *)[@"http://itunes.apple.com/rss" UTF8String]);
   if(xpathCtx == NULL)
     {
       NSLog(@"Unable to create XPath context.");
