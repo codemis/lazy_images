@@ -30,7 +30,9 @@
     for (TFHppleElement *element in appsArray) {
         AppRecord *app = [[AppRecord alloc] init];
         app.appName = [[element firstChildWithTagName:@"name"] text];
-        app.appIcon = [UIImage imageWithContentsOfFile:[[element firstChildWithTagName:@"image"] text]];
+        NSURL *appImageURL = [NSURL URLWithString:[[element firstChildWithTagName:@"image"] text]];
+        app.appIcon = [UIImage imageWithData:[NSData dataWithContentsOfURL:appImageURL]];
+        appImageURL = nil;
         app.artist = [[element firstChildWithTagName:@"artist"] text];
         [workingArray addObject:app];
     }

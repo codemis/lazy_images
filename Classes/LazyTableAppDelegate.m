@@ -5,7 +5,7 @@
 #import <CFNetwork/CFNetwork.h>
 // http://phobos.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=75/xml
 static NSString *const TopPaidAppsFeed =
-	@"http://phobos.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=20/xml";
+	@"http://phobos.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=75/xml";
 @interface LazyTableAppDelegate ()
 @property (nonatomic, strong) AppTableViewController *appTableVC;
 @end
