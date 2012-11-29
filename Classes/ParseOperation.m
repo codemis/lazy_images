@@ -9,7 +9,6 @@
 @end
 
 @implementation ParseOperation
-
 - (id)      initWithData:(NSData *)data
        completionHandler:(ArrayBlock)handler
 {
@@ -30,9 +29,7 @@
     for (TFHppleElement *element in appsArray) {
         AppRecord *app = [[AppRecord alloc] init];
         app.appName = [[element firstChildWithTagName:@"name"] text];
-        NSURL *appImageURL = [NSURL URLWithString:[[element firstChildWithTagName:@"image"] text]];
-        app.appIcon = [UIImage imageWithData:[NSData dataWithContentsOfURL:appImageURL]];
-        appImageURL = nil;
+        app.imageURLString = [[element firstChildWithTagName:@"image"] text];
         app.artist = [[element firstChildWithTagName:@"artist"] text];
         [workingArray addObject:app];
     }
