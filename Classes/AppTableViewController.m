@@ -1,6 +1,6 @@
 #import "AppTableViewController.h"
 #import "AppRecord.h"
-#import "UIImageView+WebCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation AppTableViewController
 #pragma mark - Table view creation (UITableViewDataSource)
